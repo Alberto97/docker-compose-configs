@@ -1,0 +1,26 @@
+version: "2.1"
+services:
+  plex:
+    image: lscr.io/linuxserver/plex
+    container_name: plex
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - VERSION=docker
+      - TZ=Europe/Rome
+    volumes:
+      - /usb/WD_500GB/docker/plex/config:/config
+      - /usb/WD_500GB/docker/plex/transcode:/transcode
+      - /usb/WD_500GB/Media:/data
+    ports:
+      - 32400:32400
+      #- 1900:1900/udp  #optional
+      - 3005:3005       #optional
+      #- 5353:5353/udp  #optional
+      - 8324:8324       #optional
+      - 32410:32410/udp #optional
+      - 32412:32412/udp #optional
+      - 32413:32413/udp #optional
+      - 32414:32414/udp #optional
+      - 32469:32469     #optional
+    restart: unless-stopped
