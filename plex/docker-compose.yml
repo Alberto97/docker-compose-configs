@@ -13,14 +13,15 @@ services:
       - /usb/WD_500GB/docker/plex/transcode:/transcode
       - /usb/WD_500GB/Media:/data
     ports:
-      - 32400:32400
-      #- 1900:1900/udp  #optional
-      - 3005:3005       #optional
-      #- 5353:5353/udp  #optional
-      - 8324:8324       #optional
-      - 32410:32410/udp #optional
-      - 32412:32412/udp #optional
-      - 32413:32413/udp #optional
-      - 32414:32414/udp #optional
-      - 32469:32469     #optional
+      # https://support.plex.tv/articles/201543147-what-network-ports-do-i-need-to-allow-through-my-firewall/
+      - 32400:32400     # Access to the Plex Media Server
+      #- 1900:1900/udp  # Optional: access to the Plex DLNA Server
+      - 3005:3005       # Optional: ???
+      #- 5353:5353/udp  # Optional: older Bonjour/Avahi network discovery
+      - 8324:8324       # Optional: controlling Plex for Roku via Plex Companion
+      - 32410:32410/udp # Optional: current GDM network discovery
+      - 32412:32412/udp # Optional: current GDM network discovery
+      - 32413:32413/udp # Optional: current GDM network discovery
+      - 32414:32414/udp # Optional: current GDM network discovery
+      - 32469:32469     # Optional: access to the Plex DLNA Server
     restart: unless-stopped
