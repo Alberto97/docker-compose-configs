@@ -1,0 +1,15 @@
+# NOTE: Build the image first
+version: "2.1"
+services:
+  datausage:
+    image: datausage
+    container_name: datausage
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Rome
+    volumes:
+      - /usb/WD_500GB/docker/datausage/config:/config
+    ports:
+      - 8020:8020
+    restart: unless-stopped
