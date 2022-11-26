@@ -9,4 +9,5 @@ services:
       - TZ=Europe/Rome
     volumes:
       - /usb/WD_500GB/docker/home-assistant/config:/config
+      - /run/dbus:/run/dbus:ro
     restart: unless-stopped
