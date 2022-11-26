@@ -5,11 +5,13 @@ services:
     image: datausage
     container_name: datausage
     environment:
+      - AUTH_USERNAME=${AUTH_USERNAME}
+      - AUTH_PASSWORD=${AUTH_PASSWORD}
       - PUID=1000
       - PGID=1000
       - TZ=Europe/Rome
     volumes:
       - /usb/WD_500GB/docker/datausage/config:/config
     ports:
-      - 8020:8020
+      - "8020:8020"
     restart: unless-stopped
