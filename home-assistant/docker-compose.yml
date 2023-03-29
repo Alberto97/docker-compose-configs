@@ -8,6 +8,7 @@ services:
     environment:
       - TZ=Europe/Rome
     volumes:
+      - $HOME/.ssh:/root/.ssh
       - /usb/WD_500GB/docker/home-assistant/config:/config
       - /run/dbus:/run/dbus:ro
     restart: unless-stopped
