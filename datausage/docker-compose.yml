@@ -2,7 +2,7 @@
 version: "2.1"
 services:
   datausage:
-    image: ghcr.io/alberto97/datausage
+    image: ghcr.io/alberto97/datausage:latest
     container_name: datausage
     environment:
       - AUTH_USERNAME=${AUTH_USERNAME}
