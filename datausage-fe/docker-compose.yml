@@ -1,0 +1,12 @@
+version: "2.1"
+services:
+  datausage:
+    image: ghcr.io/alberto97/datausage-fe:latest
+    container_name: datausage-fe
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Rome
+    ports:
+      - "8021:80"
+    restart: unless-stopped
