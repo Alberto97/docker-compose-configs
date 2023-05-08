@@ -6,8 +6,8 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - MEM_LIMIT=1024   #optional
-      - MEM_STARTUP=1024 #optional
+      - MEM_LIMIT=1024
+      - MEM_STARTUP=128
     volumes:
       - /usb/WD_500GB/docker/unifi/config:/config
     ports:
