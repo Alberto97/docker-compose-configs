@@ -9,3 +9,4 @@ services:
     user: root
     ports:
       - 24224:24224
+    restart: unless-stopped
