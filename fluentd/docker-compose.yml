@@ -1,0 +1,11 @@
+version: "3"
+services:
+  fluentd:
+    image: fluent/fluentd:v1.16-debian-1
+    container_name: fluentd
+    volumes:
+      - /usb/WD_500GB/docker/fluentd/config/fluent.conf:/fluentd/etc/fluent.conf
+      - /usb/WD_500GB/docker/datausage/logs:/fluentd/log/docker.datausage
+    user: root
+    ports:
+      - 24224:24224
