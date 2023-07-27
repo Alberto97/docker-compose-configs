@@ -1,9 +1,12 @@
-# NOTE: Build the image first
 version: "2.1"
 services:
   datausage:
     image: ghcr.io/alberto97/datausage:latest
     container_name: datausage
+    logging:
+      driver: fluentd
+      options:
+        tag: docker.datausage
     environment:
       - AUTH_USERNAME=${AUTH_USERNAME}
       - AUTH_PASSWORD=${AUTH_PASSWORD}
