@@ -7,7 +7,7 @@ services:
     environment:
       - TZ=Europe/Rome
     volumes:
-      - /usb/WD_500GB/docker/rclone/config:/root/.config/rclone
-      - /usb/WD_500GB/docker/rclone/script/datausage.sh:/etc/periodic/daily/datausage
-      - /usb/WD_500GB/docker/datausage/config/data:/data/datausage:ro
+      - $EXT/docker/rclone/config:/root/.config/rclone
+      - $EXT/docker/rclone/script/datausage.sh:/etc/periodic/daily/datausage
+      - $EXT/docker/datausage/config/data:/data/datausage:ro
     restart: unless-stopped

@@ -14,7 +14,7 @@ services:
       - PGID=1000
       - TZ=Europe/Rome
     volumes:
-      - /usb/WD_500GB/docker/datausage/config:/config
+      - $EXT/docker/datausage/config:/config
     ports:
       - "8020:8020"
     restart: unless-stopped

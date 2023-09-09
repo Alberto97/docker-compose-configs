@@ -4,9 +4,9 @@ services:
       container_name: mosquitto
       image: eclipse-mosquitto
       volumes:
-      - "/usb/WD_500GB/docker/mosquitto/config:/mosquitto/config"
-      - "/usb/WD_500GB/docker/mosquitto/log:/mosquitto/log"
-      - "/usb/WD_500GB/docker/mosquitto/data/:/mosquitto/data"
+      - "$EXT/docker/mosquitto/config:/mosquitto/config"
+      - "$EXT/docker/mosquitto/log:/mosquitto/log"
+      - "$EXT/docker/mosquitto/data/:/mosquitto/data"
       restart: always
       ports:
       - "1883:1883"

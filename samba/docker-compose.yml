@@ -9,5 +9,5 @@ services:
       SAMBA_VOLUME_CONFIG_ext: "[EXT]; path = /shares/EXT; read only = no; browsable = yes; smb encrypt = no;"
       SAMBA_VOLUME_CONFIG_ext_share: "[ext_share]; path = /shares/EXT/shared; read only = no; browsable = yes; smb encrypt = no;"
     volumes:
-      - /usb/WD_500GB:/shares/EXT
+      - $EXT:/shares/EXT
     restart: always

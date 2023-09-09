@@ -6,8 +6,8 @@ services:
     environment:
       - TZ=Europe/Rome
     volumes:
-      - /usb/WD_500GB/docker/fluentd/config/fluent.conf:/fluentd/etc/fluent.conf
-      - /usb/WD_500GB/docker/datausage/logs:/fluentd/log/docker.datausage
+      - $EXT/docker/fluentd/config/fluent.conf:/fluentd/etc/fluent.conf
+      - $EXT/docker/datausage/logs:/fluentd/log/docker.datausage
     user: root
     ports:
       - 24224:24224

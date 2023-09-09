@@ -10,5 +10,5 @@ services:
       - OPTIONS_FILE=/config/options.json
     network_mode: host
     volumes:
-      - /usb/WD_500GB/docker/aircon/config:/config
+      - $EXT/docker/aircon/config:/config
     restart: unless-stopped

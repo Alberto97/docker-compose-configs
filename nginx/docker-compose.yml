@@ -7,7 +7,7 @@ services:
       - 80:80
       - 443:443
     volumes:
-       - /usb/WD_500GB/docker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
-       - /usb/WD_500GB/docker/nginx/nginx-selfsigned.crt:/etc/ssl/certs/nginx-selfsigned.crt:ro
-       - /usb/WD_500GB/docker/nginx/nginx-selfsigned.key:/etc/ssl/private/nginx-selfsigned.key:ro
+       - $EXT/docker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+       - $EXT/docker/nginx/nginx-selfsigned.crt:/etc/ssl/certs/nginx-selfsigned.crt:ro
+       - $EXT/docker/nginx/nginx-selfsigned.key:/etc/ssl/private/nginx-selfsigned.key:ro
     restart: unless-stopped

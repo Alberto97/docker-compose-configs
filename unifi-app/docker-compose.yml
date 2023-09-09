@@ -7,7 +7,7 @@ services:
       - TZ=Europe/Rome
     volumes:
       - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
-      - /usb/WD_500GB/docker/unifi/db:/data/db
+      - $EXT/docker/unifi/db:/data/db
     restart: unless-stopped
 
   unifi-app:
@@ -27,7 +27,7 @@ services:
       - MONGO_DBNAME=unifi
       - TZ=Europe/Rome
     volumes:
-      - /usb/WD_500GB/docker/unifi/config:/config
+      - $EXT/docker/unifi/config:/config
     ports:
       # https://github.com/linuxserver/docker-unifi-network-application#parameters
       - 3478:3478/udp   # Unifi STUN port
