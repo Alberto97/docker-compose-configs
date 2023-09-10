@@ -1,8 +1,8 @@
 version: "2.1"
 services:
-  datausage:
+  backend:
     image: ghcr.io/alberto97/datausage:latest
-    container_name: datausage
+    container_name: datausage-be
     logging:
       driver: fluentd
       options:
@@ -17,4 +17,17 @@ services:
       - $EXT/docker/datausage/config:/config
     ports:
       - "8020:8020"
+    restart: unless-stopped
+
+  frontend:
+    image: ghcr.io/alberto97/datausage-fe:latest
+    container_name: datausage-fe
+    depends_on:
+      - backend
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Rome
+    ports:
+      - "8021:80"
     restart: unless-stopped
