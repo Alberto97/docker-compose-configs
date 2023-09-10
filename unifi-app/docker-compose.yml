@@ -1,6 +1,6 @@
 version: "2.1"
 services:
-  unifi-mongo:
+  mongo:
     image: mongo:3.6
     container_name: unifi-mongo
     environment:
@@ -10,11 +10,11 @@ services:
       - $EXT/docker/unifi/db:/data/db
     restart: unless-stopped
 
-  unifi-app:
+  app:
     image: lscr.io/linuxserver/unifi-network-application:latest
     container_name: unifi-app
     depends_on:
-      - unifi-mongo
+      - mongo
     environment:
       - PUID=1000
       - PGID=1000
