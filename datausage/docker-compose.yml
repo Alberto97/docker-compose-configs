@@ -3,9 +3,12 @@ services:
   backend:
     image: ghcr.io/alberto97/datausage:latest
     container_name: datausage-be
+    depends_on:
+      - fluentd
     logging:
       driver: fluentd
       options:
+        fluentd-address: localhost:8022
         tag: docker.datausage
     environment:
       - AUTH_USERNAME=${AUTH_USERNAME}
@@ -30,4 +33,17 @@ services:
       - TZ=Europe/Rome
     ports:
       - "8021:80"
+    restart: unless-stopped
+
+  fluentd:
+    image: fluent/fluentd:v1.16-debian-1
+    container_name: datausage-fluentd
+    environment:
+      - TZ=Europe/Rome
+    volumes:
+      - $EXT/docker/datausage/fluent.conf:/fluentd/etc/fluent.conf
+      - $EXT/docker/datausage/logs:/fluentd/log/docker.datausage
+    user: root
+    ports:
+      - 8022:24224
     restart: unless-stopped
